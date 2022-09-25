@@ -13,6 +13,10 @@ spring:
           uri: http://localhost:8084/ 
           predicates: 
             - Path=/catalog/**
+        - id: seriesRoute 
+          uri: http://localhost:8086/ 
+          predicates: 
+            - Path=/series/**
 eureka:
   client:
     service-url:
