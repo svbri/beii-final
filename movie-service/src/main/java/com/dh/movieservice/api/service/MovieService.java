@@ -6,5 +6,7 @@ import java.util.List;
 
 public interface MovieService {
 	List<Movie> getListByGenre(String genre);
-	Movie save(Movie movie);
+	List<Movie> getListByGenre(String genre, Boolean throwError);
+	Movie saveMovie(Movie movie);
+	void save(Movie movie);
 }

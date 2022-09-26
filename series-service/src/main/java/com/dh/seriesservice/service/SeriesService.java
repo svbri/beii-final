@@ -23,4 +23,13 @@ public class SeriesService {
     public List<Series> list(String genre) {
         return seriesRepository.findByGenre(genre);
     }
+
+    public Series findById(Integer id) {
+        return seriesRepository.findById(id)
+                .orElse(null);
+    }
+
+    public List<Series> findAll() {
+        return seriesRepository.findAll();
+    }
 }

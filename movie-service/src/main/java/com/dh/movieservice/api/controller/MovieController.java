@@ -19,12 +19,17 @@ public class MovieController {
 	}
 
 	@GetMapping("/{genre}")
-	public ResponseEntity<List<Movie>> getMovieByGenre(@PathVariable String genre) {
+	ResponseEntity<List<Movie>> getMovieByGenre(@PathVariable String genre) {
 		return ResponseEntity.ok().body(movieService.getListByGenre(genre));
 	}
 
+	@GetMapping("/withErrors/{genre}")
+	ResponseEntity<List<Movie>> getMovieByGenre(@PathVariable String genre, @RequestParam("throwError") boolean throwError) {
+		return ResponseEntity.ok().body(movieService.getListByGenre(genre, throwError));
+	}
+
 	@PostMapping
-	public ResponseEntity<Movie> saveMovie(@RequestBody Movie movie) {
-		return ResponseEntity.ok().body(movieService.save(movie));
+	ResponseEntity<Movie> saveMovie(@RequestBody Movie movie) {
+		return ResponseEntity.ok().body(movieService.saveMovie(movie));
 	}
 }
