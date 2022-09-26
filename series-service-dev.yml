@@ -14,3 +14,9 @@ spring:
       database: sgdb
       port: 27017
       host: localhost
+
+info:
+  app:
+    name: ${spring.application.name}
+    version: 1.0.0
+    description: Series Microservice
