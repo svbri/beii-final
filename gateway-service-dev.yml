@@ -4,6 +4,8 @@ server:
 spring:
   cloud:
     gateway:
+      default-filters:
+        - name: LoggingFilter
       routes:
         - id: movieRoute 
           uri: http://localhost:8082/
