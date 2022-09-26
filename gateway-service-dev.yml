@@ -13,11 +13,27 @@ spring:
           uri: http://localhost:8084/ 
           predicates: 
             - Path=/catalog/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: catalogService
+                fallbackUri: forward:/fallback/catalogs
         - id: seriesRoute 
           uri: http://localhost:8086/ 
           predicates: 
             - Path=/series/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: seriesService
+                fallbackUri: forward:/fallback/series
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+info:
+  app:
+    name: ${spring.application.name}
+    version: 1.0.0
+    description: API Gateway
