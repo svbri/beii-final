@@ -16,6 +16,11 @@ public class CatalogController {
 
 	private final MovieService movieService;
 
+	@Autowired
+	public CatalogController(MovieService movieService) {
+		this.movieService = movieService;
+	}
+
 	//@Autowired
 	//public CatalogController(CatalogService catalogService) {
 	//	this.catalogService = catalogService;
@@ -30,11 +35,6 @@ public class CatalogController {
 //				: ResponseEntity.ok(catalogWS);
 //	}
 
-	@Autowired
-	public CatalogController(MovieService movieService) {
-		this.movieService = movieService;
-	}
-
 	@GetMapping("/{genre}")
 	public ResponseEntity<List<MovieWS>> getGenre(@PathVariable String genre) {
 		return movieService.findMovieByGenre(genre);
@@ -48,6 +48,6 @@ public class CatalogController {
 	@PostMapping("/save")
 	public ResponseEntity<String> saveMovie(@RequestBody MovieWS movieWS) {
 		movieService.saveMovie(movieWS);
-		return ResponseEntity.ok("The movie was sent to the queue");
+		return ResponseEntity.ok("La película fue enviada a la cola");
 	}
 }
