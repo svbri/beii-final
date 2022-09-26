@@ -11,6 +11,6 @@ spring:
       authentication-database: admin
       username: rootuser
       password: rootpass
-      database: amigoscode
+      database: sgdb
       port: 27017
       host: localhost
