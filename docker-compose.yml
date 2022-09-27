@@ -19,7 +19,7 @@ services:
     ports:
       - "8888:8888"
     restart: always
-  api-gateway:
+  gateway-service:
     image: gateway-service
     ports:
       - "8080:8080"
